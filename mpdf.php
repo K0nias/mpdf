@@ -34,6 +34,7 @@ define('_BORDER_LEFT',1);
 
 if (!defined('_MPDF_PATH')) define('_MPDF_PATH', dirname(preg_replace('/\\\\/','/',__FILE__)) . '/');
 if (!defined('_MPDF_URI')) define('_MPDF_URI',_MPDF_PATH);
+if (!defined('_MPDF_FONT_CONFIG_FILE')) define('_MPDF_FONT_CONFIG_FILE', _MPDF_PATH.'config_fonts.php');
 
 require_once(_MPDF_PATH.'includes/functions.php');
 require_once(_MPDF_PATH.'config_cp.php');
@@ -1141,7 +1142,7 @@ function mPDF($mode='',$format='A4',$default_font_size=0,$default_font='',$mgl=1
 	$this->SetDisplayPreferences(''); 
 
 	// Font data
-	require(_MPDF_PATH.'config_fonts.php');
+	require(_MPDF_FONT_CONFIG_FILE);
 	// Available fonts
 	$this->available_unifonts = array();
 	foreach ($this->fontdata AS $f => $fs) {
